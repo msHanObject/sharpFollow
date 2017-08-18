@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sns</title>
+    <%= csrf_meta_tags %>
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <style>
+ 
+    .gradient1 {
+        background: linear-gradient(-135deg, #FF7256, #EE7600, #CD8500, #FF7F00, #FFB90F, #FF7F00, #FF8C69, #4F94CD, #836FFF, #BA55D3, #d500f9, #e040fb, #9575cd)
+    }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="gradient1">
+      <div class = "row">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">SNS</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/posts">Posts</a></li>
+        <% if user_signed_in? %>
+        <li><%= current_user.name %></li>
+         <li><a href="/profile/index">profile</a></li>
+        <li><%= link_to'Sign out',destroy_user_session_path,method: 'delete'%></li>
+        <% else%>
+        <li><a href="/users/sign_in">Sign in</a></li>
+        <li><a href="/users/sign_up">Sign up</a></li>
+        <% end %>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+       <li><a href="/posts">Posts</a></li>
+       <% if user_signed_in? %>
+       <li><a href="/profile/index">profile</a></li>
+        <li><%= link_to'Sign out',destroy_user_session_path,method: 'delete'%></li>
+        <% else%>
+        <li><a href="/users/sign_in">Sign in</a></li>
+        <li><a href="/users/sign_up">Sign up</a></li>
+        <% end %>
+      </ul>
+    </div>
+    </div>
+    </div>
+  </nav>
+    <%= yield %>
+  </body>
+</html>

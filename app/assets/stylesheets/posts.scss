@@ -1,0 +1,19 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pre-line{
+    white-space: pre-line;
+}
+
+.post{
+    
+    .card-content{
+        .thumbnail{
+             vertical-align: middle;   
+        }
+        .content{
+            margin: 20px 0;
+        }
+    }
+}
